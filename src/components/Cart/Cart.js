@@ -16,23 +16,19 @@ const Cart = () => {
   return (
     <section>
       <div className='row justify-content-center'>
-        <div className='col-12'>
-          <h5>
-            Cart ({totalUniqueItems}) total Item ({totalItems})
-          </h5>
-          <table className='table table-light table-hover m-0'>
+        <div className='col-10'>
+          <h5>Cart ({totalUniqueItems})</h5>
+          <table className='table table-hover m-0'>
             <tbody>
               {items.map((item, index) => {
                 return (
                   <tr key={index}>
                     <td>
-                      <img src={item.img} alt='hhh' />
+                      <td>{item.title}</td>
+                      <img src={item.img} alt='hhh' style={{ width: '20%' }} />
                     </td>
-                    <td>{item.title}</td>
-                    <td>{item.price}</td>
-                    <td>Quantity({item.quantity})</td>
+                    <td>${item.price}</td>
                     <td>
-                      {' '}
                       <button
                         className='btn-info ms-2'
                         onClick={() =>
@@ -42,13 +38,14 @@ const Cart = () => {
                         -
                       </button>
                       <button
-                        className='btn-info ms-2'
+                        className='btn-info ms-1'
                         onClick={() =>
                           updateItemQuantity(item.id, item.quantity + 1)
                         }
                       >
                         +
                       </button>
+                      <td>Quantity({item.quantity})</td>
                       <button
                         className='btn-danger ms-2'
                         onClick={() => removeItem(item.id)}
@@ -62,7 +59,8 @@ const Cart = () => {
             </tbody>
           </table>
         </div>
-        <div className='col-auto ms-auto'>
+        <div className='col-auto ms-0'>
+          <p>total Item {totalItems}</p>
           <h1>tootal price: ${cartTotal}</h1>
         </div>
         <div className='col-auto'>

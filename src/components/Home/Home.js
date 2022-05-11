@@ -1,6 +1,6 @@
 import React from 'react';
-import Itemcard from './itemcard';
-import Data from './Data';
+import Itemcard from '../Card/itemcard';
+import Data from '../Data/Data';
 
 const Home = () => {
   return (
